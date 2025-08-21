@@ -1,15 +1,25 @@
 
 
 body {
-  background-image: url('img/PL009.jpg'); /* 背景画像の指定 */
+  background-image: url('img/PL001.jpg'); /* 背景画像の指定 */
   background-repeat: no-repeat;           /* 繰り返しなし */
   background-size: cover;                 /* 画面全体に拡大縮小 */
   background-attachment: fixed;           /* スクロールしても固定 */
-  
-    font-family: "Zen Old Mincho", serif;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Zen Old Mincho", serif;
+  font-weight: 400;
+  font-style: normal;
 }
+/*画像切り替え*/
+body {
+  margin: 0;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* スクロール固定 */
+  transition: background-image 1s ease-in-out; /* フェード風に変化 */
+}
+/*画像切り替え*/
+
 
 /*nav ナビゲーション*/
 .nav {
@@ -19,45 +29,52 @@ body {
   display: flex;       /* 横並び */
   background: #333;    /* 背景色 */
 }
-
 .nav li {
   margin: 0;
 }
-
 .nav a {
   display: block;         /* クリック範囲を広げる */
   padding: 1rem 1.5rem;   /* 内側余白 */
   color: white;           /* 文字色 */
   text-decoration: none;  /* 下線消す */
 }
-
 .nav a:hover {
   background: #555;       /* ホバー時の色変化 */
 }
 /*nav ナビゲーション*/
 
-
-.container-top{
-  display: flex;
+/*スペース*/
+.spacer{
+  height: 50px;/* 高さ */
 }
 
-/**logoロゴ**/
-.toplogo img{
-  max-width:100%;
-width: 300px;
-}  
-/**logoロゴ**/
 
-/*スペース2つ目*/
-.spacer-2{
-  height: 100px;
-}/*スペース2つ目end*/
+/*section class="hero"*/
+.top-logo img{
+  max-width:100%;
+  width: 400px;
+  display: block;      /* インライン要素をブロックに変換 */
+  margin: 0 auto;      /* 左右を自動調整で中央寄せ */
+}
+  
+
+/*フェードイン*/
+.top-logo img {
+  opacity: 0;               /* 最初は透明 */
+  animation: fadeIn 2s ease-in forwards; /* 2秒でフェードイン */
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+/*フェードイン*/
 
 
 /*旅に出よう。*/
 .message {
   width: 100%;          /* 画像と同じ幅にする */
-  height: 100%;         /* 画像と同じ高さにする */
+  height: auto;         /* 画像と同じ高さにする */
   display: flex;        /* 中央揃え用 */
   flex-direction: column;
   justify-content: center;  /* 縦方向中央揃え */
@@ -72,12 +89,17 @@ width: 300px;
 
 
 
-/*スペース3つ目*/
-.spacer-3{
-  height: 100px;
-}/*スペース3つ目end*/
-
-
+/*フェードイン*/
+.message {
+  opacity: 0;               /* 最初は透明 */
+  animation: fadeIn 2s ease-in forwards; /* 2秒でフェードイン */
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+/*フェードイン*/
 
 /*id=map containerタグ*/
 .container{
@@ -93,6 +115,7 @@ width: 300px;
       height: auto ;        /* 親要素にフィット */
       padding: 0;          /* 親の幅に応じて余白を調整 */
       box-sizing: border-box;
+      
     }
 
         .box-ex h3 {
